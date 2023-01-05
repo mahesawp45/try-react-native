@@ -1,0 +1,56 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add nativewind --dev taildwindcss
+
+PATH: 
+  C:\Program Files\Eclipse Adoptium\jdk-11.0.17.8-hotspot\bin;C:\Program Files\Eclipse Adoptium\jdk-17.0.2.8-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\MahesaWP\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;X:\Xampp\mysql\bin;C:\composer;X:\Xampp\php;C:\flutter\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Gradle\gradle-6.6\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\MahesaWP\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\MahesaWP\AppData\Local\Programs\Python\Python310\;C:\Users\MahesaWP\AppData\Local\Microsoft\WindowsApps;C:\Users\MahesaWP\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\MahesaWP\AppData\Roaming\Composer\vendor\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.2\bin;C:\Users\MahesaWP\AppData\Local\Android\Sdk\platform-tools;C:\Users\MahesaWP\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.18.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/taildwindcss: Not found
+      at Request.params.callback [as _callback] (C:\Users\MahesaWP\AppData\Roaming\nvm\v16.18.0\node_modules\yarn\lib\cli.js:66145:18)
+      at Request.self.callback (C:\Users\MahesaWP\AppData\Roaming\nvm\v16.18.0\node_modules\yarn\lib\cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (C:\Users\MahesaWP\AppData\Roaming\nvm\v16.18.0\node_modules\yarn\lib\cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (C:\Users\MahesaWP\AppData\Roaming\nvm\v16.18.0\node_modules\yarn\lib\cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1358:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "belajar-react-native",
+    "version": "1.0.0",
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web"
+    },
+    "dependencies": {
+      "expo": "~47.0.9",
+      "expo-status-bar": "~1.4.2",
+      "react": "18.1.0",
+      "react-native": "0.70.5"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.12.9"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
