@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ed88f51c-fec1-4943-abe3-b976ab21e558"
+      }
+    },
+    "owner": "mahesawp"
   }
 }
