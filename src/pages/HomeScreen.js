@@ -4,6 +4,8 @@ import { Image, ScrollView, Text, TextInput, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { AdjustmentsVerticalIcon, ChevronDownIcon, MagnifyingGlassIcon, UserIcon } from "react-native-heroicons/outline";
 import Categories from '../components/Categories';
+import FeaturedRow from '../components/FeaturedRow';
+import { APPCOLOR1 } from '../constants/AppColors';
 
 const HomeScreen = () => {
 
@@ -26,11 +28,11 @@ const HomeScreen = () => {
                         <Text className='font-bold text-gray-400 text-xs'>Deliver Now!</Text>
                         <Text className='font-bold text-xl'>
                             Current Location
-                            <ChevronDownIcon size={20} color='#00CCBB' />
+                            <ChevronDownIcon size={20} color={APPCOLOR1} />
                         </Text>
 
                     </View>
-                    <UserIcon size={35} color='#00CCBB' />
+                    <UserIcon size={35} color={APPCOLOR1} />
                 </View>
 
                 {/* Filter */}
@@ -39,13 +41,29 @@ const HomeScreen = () => {
                         <MagnifyingGlassIcon color='gray' />
                         <TextInput placeholder='Cari Makanan Enak!' keyboardType='default' />
                     </View>
-                    <AdjustmentsVerticalIcon color='#00CCBB' />
+                    <AdjustmentsVerticalIcon color={APPCOLOR1} />
                 </View>
             </View>
 
             {/* Body */}
             <ScrollView className='bg-gray-100 flex-1'>
                 <Categories />
+
+                <FeaturedRow
+                    id='1'
+                    title='Featured'
+                    description='Paid placements from our partners'
+                />
+                <FeaturedRow
+                    id='2'
+                    title='Nasty Discount %'
+                    description='Paid placements from our partners'
+                />
+                <FeaturedRow
+                    id='3'
+                    title='Offers near you!'
+                    description='Paid placements from our partners'
+                />
             </ScrollView>
 
         </SafeAreaView>
