@@ -3,6 +3,9 @@ import React from 'react'
 import { StarIcon } from 'react-native-heroicons/solid'
 import { MapPinIcon } from 'react-native-heroicons/outline'
 import { GRAYCOLOR, RATINGCOLOR } from '../../constants/AppColors'
+import { urlFor } from '../../../sanity'
+import { useNavigation } from '@react-navigation/native'
+import { RESTAURANT } from '../../constants/AppName'
 
 const RestaurantCard = ({
     id,
@@ -16,10 +19,30 @@ const RestaurantCard = ({
     long,
     lat,
 }) => {
+
+    const navigation = useNavigation()
+
     return (
-        <TouchableOpacity className='bg-white shadow mr-3 rounded-sm'>
+        <TouchableOpacity
+            className='bg-white shadow mr-3 rounded-sm'
+            onPress={() => {
+                navigation.navigate(RESTAURANT, {
+                    id,
+                    imgURL,
+                    title,
+                    rating,
+                    genre,
+                    address,
+                    short_description,
+                    dishes,
+                    long,
+                    lat,
+                })
+            }}
+        >
             <Image
-                source={{ uri: imgURL }}
+                // ini karena makai Sanity
+                source={{ uri: urlFor(imgURL).url() }}
                 className='h-36 w-64 rounded-sm bg-slate-900'
             />
             <View className='px-3 pb-4 pt-2'>

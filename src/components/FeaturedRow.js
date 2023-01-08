@@ -1,10 +1,30 @@
 import { View, Text, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ArrowRightIcon } from 'react-native-heroicons/outline'
 import { APPCOLOR1 } from '../constants/AppColors'
 import RestaurantCard from './unit/RestaurantCard'
+import sanityClient from '../../sanity'
+import { GET_RESTAURANT_BY_FEATURED } from '../constants/AppAPI'
 
 const FeaturedRow = ({ id, title, description }) => {
+
+    const [restaurants, setrestaurants] = useState([])
+
+    useEffect(() => {
+        getRestaurantsData()
+
+    }, [id])
+
+    const getRestaurantsData = async () => {
+        try {
+            const response = await sanityClient.fetch(GET_RESTAURANT_BY_FEATURED, { id })
+            setrestaurants(await response?.restaurants)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
     return (
         <View>
             <View className='flex-row justify-between mt-4 items-center px-4'>
@@ -22,45 +42,31 @@ const FeaturedRow = ({ id, title, description }) => {
                 className='pt-4'
             >
                 {/* Restaurant Card */}
-                <RestaurantCard
-                    id='1'
-                    imgURL='https://upload.wikimedia.org/wikipedia/en/b/b2/Lorde_-_Melodrama.png'
-                    title='Melodrama'
-                    rating='5.0'
-                    genre='Pop'
-                    address='New Zealand'
-                    short_description='Album Music Pop'
-                    dishes='-'
-                    long='10'
-                    lat='100'
-                />
-                
-                <RestaurantCard
-                    id='1'
-                    imgURL='https://upload.wikimedia.org/wikipedia/en/e/e7/Life%27s_Not_Out_to_Get_You.jpg'
-                    title='Lifes Not Out To Get You'
-                    rating='4.8'
-                    genre='Pop Punk'
-                    address='British'
-                    short_description='Album Music Pop'
-                    dishes='-'
-                    long='10'
-                    lat='100'
-                />
 
-                <RestaurantCard
-                    id='1'
-                    imgURL='https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/1-lorde-solar-power-album-cover-bonita-g-giroux.jpg'
-                    title='Solar Power'
-                    rating='4.5'
-                    genre='Pop'
-                    address='New Zealand'
-                    short_description='Album Music Pop'
-                    dishes='-'
-                    long='10'
-                    lat='100'
-                />
-                
+                {
+                    restaurants.map((res) => {
+                        return (
+                            <RestaurantCard
+                                key={res._id}
+                                id={res._id}
+                                imgURL={res.restaurantImage}
+                                title={res.title}
+                                rating={res.restaurantRating}
+                                genre={res._type}
+                                address={res.restaurantAddress}
+                                short_description={res.shortDescription}
+                                dishes={res.dishes}
+                                long={res.longitudeRestaurant}
+                                lat={res.latitudeRestaurant}
+                            />
+                        )
+                    })
+                }
+
+
+
+
+
             </ScrollView>
         </View>
     )

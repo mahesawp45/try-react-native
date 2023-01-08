@@ -1,8 +1,26 @@
 import { View, Text, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CategoryCard from './unit/CategoryCard'
+import sanityClient from '../../sanity'
+import { GET_CATEGORIES } from '../constants/AppAPI'
 
 const Categories = () => {
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        getCategoriesData()
+    }, [])
+
+    const getCategoriesData = async () => {
+        try {
+            const response = await sanityClient.fetch(GET_CATEGORIES)
+
+            setCategories(await response)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <ScrollView
             contentContainerStyle={{
@@ -12,12 +30,20 @@ const Categories = () => {
             horizontal
             showsHorizontalScrollIndicator={false}
         >
-            <CategoryCard imgURL='https://upload.wikimedia.org/wikipedia/en/b/b2/Lorde_-_Melodrama.png' title='TESTING' />
-            <CategoryCard imgURL='https://upload.wikimedia.org/wikipedia/en/b/b2/Lorde_-_Melodrama.png' title='TESTING' />
-            <CategoryCard imgURL='https://upload.wikimedia.org/wikipedia/en/b/b2/Lorde_-_Melodrama.png' title='TESTING' />
-            <CategoryCard imgURL='https://upload.wikimedia.org/wikipedia/en/b/b2/Lorde_-_Melodrama.png' title='TESTING' />
-            <CategoryCard imgURL='https://upload.wikimedia.org/wikipedia/en/b/b2/Lorde_-_Melodrama.png' title='TESTING' />
-            <CategoryCard imgURL='https://upload.wikimedia.org/wikipedia/en/b/b2/Lorde_-_Melodrama.png' title='TESTING' />
+            {
+                categories?.map((cat) => {
+                    return (
+                        <CategoryCard
+                            key={cat._id}
+                            imgURL={cat.categoryImage}
+                            title={cat.title}
+
+                        />
+                    )
+                })
+            }
+
+
 
         </ScrollView>
     )

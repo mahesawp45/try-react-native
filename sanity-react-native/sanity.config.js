@@ -5,9 +5,9 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'belajar-react-native',
+  title: 'sanity-react-native',
 
-  projectId: 't2sf30pn',
+  projectId: 'k97m0h68',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],
