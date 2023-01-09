@@ -24,7 +24,7 @@ const RestaurantCard = ({
 
     return (
         <TouchableOpacity
-            className='bg-white shadow mr-3 rounded-sm'
+            className='bg-gray-800 shadow mr-3 rounded-sm'
             onPress={() => {
                 navigation.navigate(RESTAURANT, {
                     id,
@@ -46,7 +46,7 @@ const RestaurantCard = ({
                 className='h-36 w-64 rounded-sm bg-slate-900'
             />
             <View className='px-3 pb-4 pt-2'>
-                <Text className='text-lg font-bold'>{title}</Text>
+                <Text className='text-lg font-bold text-white'>{title}</Text>
                 <View className='flex-row items-center space-x-1'>
                     <StarIcon color={RATINGCOLOR} opacity={0.5} size={22} />
                     <Text className='text-xs text-gray-500'>

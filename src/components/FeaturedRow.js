@@ -28,7 +28,7 @@ const FeaturedRow = ({ id, title, description }) => {
     return (
         <View>
             <View className='flex-row justify-between mt-4 items-center px-4'>
-                <Text className='font-bold text-lg'>{title}</Text>
+                <Text className='font-bold text-lg text-white'>{title}</Text>
                 <ArrowRightIcon color={APPCOLOR1} />
             </View>
             <Text className='text-xs text-gray-500 px-4'>{description}</Text>
