@@ -4,14 +4,16 @@ import { BASKET } from '../name'
 
 const initialState = {
   restaurant: {
-    id: null,
-    imgUrl: null,
-    title: null,
-    rating: null,
-    genre: null,
-    address: null,
-    short_description: null,
-    dishes: null,
+    id : null,
+    imgURL : null,
+    title : null,
+    rating : null,
+    genre : null,
+    address : null,
+    short_description : null,
+    dishes : null,
+    long : null,
+    lat : null,
   },
 }
 
@@ -19,10 +21,10 @@ export const restaurantSlice = createSlice({
   name: RESTAURANT,
   initialState,
   reducers: {
-      setRestaurant: (state, action) => {
-        state.restaurant = action.payload
-      }
-    
+    setRestaurant: (state, action) => {
+      state.restaurant = action.payload
+    }
+
   },
 })
 
